@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <string.h>
+
+// remove os espaços em branco
+void removeEspacos(char *str) {
+    int i, j = 0;
+    for (i = 0; str[i]; i++) {
+        if (str[i] != ' ') {
+            str[j++] = str[i];
+        }
+    }
+    str[j] = '\0';
+}
+
+
+//inverte a frase
+void inverteString(char *str) {
+    int length = strlen(str);
+    int i, j = length - 1;
+    char temp;
+    for (i = 0; i < j; i++, j--) {
+        temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+    }
+}
+
+int main() {
+    char frase[100];
+    printf("Digite sua frase: ");
+    gets(frase);
+
+    removeEspacos(frase);
+
+    inverteString(frase);
+
+//compara as duas frases
+    if (strcmp(frase, frase) == 0) {
+        printf("eh um palindromo :).\n");
+    } else {
+        printf("nao eh palindromo :(.\n");
+    }
+
+    return 0;
+}
